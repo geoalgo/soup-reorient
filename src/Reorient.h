@@ -40,6 +40,9 @@
 namespace Reorient{
 
 
+/**
+ * Visitor called while exploring the adjacency graph of triangles.
+ */
 template < typename Visitor > class bfs_visitor:public boost::default_bfs_visitor {
 public:
 	bfs_visitor(Dual_graph& graph,const Visitor& vis):graph_(graph),vis_(vis){
@@ -76,7 +79,11 @@ public:
 };
 
 
-
+/**
+ * Cost for an edge. The minimum spanning tree minimizes the sum of this cost.
+ * One could do something smarter here by looking into a small neighborhood
+ * and taking visibility argument into account.
+ */
 struct Cost{
 	Cost(const Primal_graph& primal_graph,const Dual_graph& dual_graph):
 	primal_graph_(primal_graph),dual_graph_(dual_graph){
