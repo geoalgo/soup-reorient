@@ -132,10 +132,7 @@ private:
 				}
 			}
 		}
-
-		std::cerr <<"t1:"<<t1<<std::endl;
-		std::cerr <<"t2:"<<t2<<std::endl;
-		assert(false);
+		assert(false); //t1 and t2 does not share an edge uv
 		return res;
 	}
 };

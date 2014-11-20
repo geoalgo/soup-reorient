@@ -34,10 +34,12 @@
 using namespace Reorient;
 
 /**
- * call order :
+ * Reorientation will call methods of this visitor in that order :
  * - init -> before anything is explored
  * - vertex -> for all vertices
  * - triangle -> for all triangles after being reoriented
+ *
+ * You can do what you want here such as writing the oriented mesh in a '.ply' file.
  */
 struct Custom_visitor{
 	void init(unsigned num_vertices,unsigned num_faces,unsigned num_edges = 0) const{

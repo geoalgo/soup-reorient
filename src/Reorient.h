@@ -139,6 +139,14 @@ Dual_graph build_spanning_tree(const Primal_graph& primal_graph,Dual_graph& dual
 	return spanning_tree;
 }
 
+/**
+ * Reorientation function.
+ * 1- load triangles in off file.
+ * 2- compute the graph of the triangulation and the adjacency graph of triangles (vertices=triangles/edges between adj triangles).
+ * 3- compute a minimum spanning tree.
+ * 4- orientate triangles from this tree. At this point, the soup will be well oriented in the case of 2-manifold.
+ * 5- todo remove triangles that are not compatible with this tree orientation.
+ */
 template<typename Visitor>
 void reorient(const Visitor& vis,const std::string& input_off){
 	Primal_graph primal_graph;
